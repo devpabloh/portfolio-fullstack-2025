@@ -1,0 +1,110 @@
+.ContainerHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+
+
+}
+
+.containerNav{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.containerNav a{
+    color: #333;
+    font-weight: 100;
+    transition: color 0.3s ease;
+}
+
+.containerNav a:hover{
+    color: #000;
+}
+
+.buttonMenu{
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.buttonMenu span{
+    width: 100%;
+    height: 0.2rem;
+    background-color: #333;
+    border-radius: 0.625rem;
+    transition: all 0.3s ease;
+}
+
+.buttonMenu.open span:nth-child(1){
+    transform: rotate(45deg) translate(0.5rem, 0.5rem);
+}
+
+@media (max-width: 768px){
+    .buttonMenu{
+        display: flex;
+        margin-right: 1rem;
+    }
+
+    .navMenu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 10%;
+        height: 100vh;
+        background-color: white;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 5;
+        padding: 5rem 2rem 2rem;
+    }
+
+    .navMenu.open {
+        right: 0;
+    }
+
+    .containerNav {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* animação do menu */
+    .buttonMenu.open span:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .buttonMenu.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .buttonMenu.open span:last-child {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+@media (max-width: 320px) {
+    .open{
+        margin-right: 2rem;
+    }
+
+    .buttonMenu.open span:first-child {
+        transform: rotate(45deg) translate(9px, 9px);
+    }
+    
+    .buttonMenu.open span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .buttonMenu.open span:last-child {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}

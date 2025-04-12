@@ -1,0 +1,22 @@
+:root{
+  --one-color: #000;
+  --two-color: #FFFFFF;
+  --three-color: #CA1F3D;
+  --four-color: #FFBE00;
+  --five-color: #25182E;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+ul{
+  list-style: none;
+}
