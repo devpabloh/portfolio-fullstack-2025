@@ -2,10 +2,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0 0 1rem 1rem;
+    border-bottom: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
 
+.ContainerHeader a{
+    color: var(--secondary-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
 
+.ContainerHeader a:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .containerNav{
@@ -14,15 +26,14 @@
     gap: 1rem;
 }
 
-.containerNav a{
-    color: #333;
-    font-weight: 100;
-    transition: color 0.3s ease;
+ svg{
+    color: var(--secondary-color);
 }
 
-.containerNav a:hover{
-    color: #000;
+svg:hover{
+    color: var(--primary-color);
 }
+
 
 .buttonMenu{
     display: none;
@@ -30,7 +41,7 @@
     justify-content: space-around;
     width: 2rem;
     height: 2rem;
-    background: transparent;
+    background-color: var(--primary-color);
     border: none;
     cursor: pointer;
     padding: 0;
@@ -40,13 +51,101 @@
 .buttonMenu span{
     width: 100%;
     height: 0.2rem;
-    background-color: #333;
+    background-color: var(--secondary-color);
     border-radius: 0.625rem;
     transition: all 0.3s ease;
 }
 
+
 .buttonMenu.open span:nth-child(1){
     transform: rotate(45deg) translate(0.5rem, 0.5rem);
+}
+
+.configContainer{
+    position: relative;
+    margin-right: 1rem;
+}
+
+.configButton{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.configButton:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.configButton svg:hover{
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .configButton svg {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="dark"] .configButton:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Destacar sutil no modo escuro */
+}
+
+[data-theme="dark"] .configButton:hover svg {
+    color: var(--primary-color); /* Muda para cor primária no tema escuro */
+    transform: rotate(45deg); /* Efeito de rotação da engrenagem */
+}
+
+.configDropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--box-shadow);
+    padding: 1rem;
+    min-width: 200px;
+    z-index: 100;
+    border: 1px solid var(--border-color);
+}
+
+.configItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.configItem:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 8px;
+}
+
+.themeToggle, .langToggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    color: var(--text-color);
+}
+
+.themeToggle:hover, .langToggle:hover {
+    background-color: var(--secondary-color);
+}
+
+.light .toggleThumb {
+    transform: translateX(0);
+}
+
+.dark .toggleThumb {
+    transform: translateX(30px);
 }
 
 @media (max-width: 768px){
@@ -89,11 +188,18 @@
     .buttonMenu.open span:last-child {
         transform: rotate(-45deg) translate(7px, -6px);
     }
+
+    .configDropdown {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+    }
 }
 
 @media (max-width: 320px) {
     .open{
-        margin-right: 2rem;
+        margin-right: 2poderrem;
     }
 
     .buttonMenu.open span:first-child {

@@ -1,20 +1,40 @@
-:root{
-  --one-color: #000;
-  --two-color: #FFFFFF;
-  --three-color: #CA1F3D;
-  --four-color: #FFBE00;
-  --five-color: #25182E;
+:root {
+  --primary-color: #2664D3; /* Background  */
+  --secondary-color: #ffff; /* Texto */
+  --tertiary-color: #000000; /* Botão */
+  --quaternary-color: #2C72EE; /* Botão hover */
 }
 
-body{
+/* Tema escuro */
+[data-theme="dark"] {
+  --bg-color: #0a1929;              /* Fundo azul escuro */
+  --text-color: #e0e0e0;            /* Texto claro */
+  --primary-color: #61dafb;         /* Azul ciano */
+  --secondary-color: #162a3a;       /* Azul escuro secundário */
+  --border-color: #274156;          /* Bordas azuladas */
+  --header-bg: #0d2137;             /* Cabeçalho azul escuro */
+  --box-shadow: rgba(0, 10, 30, 0.4); /* Sombra azulada */
+}
+
+[data-theme="dark"] a{
+  transition: color 0.3s ease, transform 0.3s ease;
+  
+}
+
+[data-theme="dark"] a:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Destacar sutil no modo escuro */
+}
+
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a{
   text-decoration: none;
-  color: inherit;
 }
 
 ul{
